@@ -2,7 +2,7 @@ import * as React from "react";
 import { useContext } from "react";
 import { ErrorContext } from "./ErrorBoundary";
 
-export default function EditFolder(props: {}) {
+export default function Edit(props: {}) {
     const { setError } = useContext(ErrorContext);
     function submit() {
         setError("TEST EXCEPTION");

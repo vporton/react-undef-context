@@ -1,13 +1,11 @@
 import * as React from "react";
-import EditFolder from "./EditFolder";
+import Edit from "./Edit";
 import { ErrorBoundary } from "./ErrorBoundary";
  
 export default function App() {
     return (
-        <>
-            <ErrorBoundary>
-                <EditFolder/>
-            </ErrorBoundary>
-        </>
+        <ErrorBoundary>
+            <Edit/>
+        </ErrorBoundary>
     );
 }
