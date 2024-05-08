@@ -13,7 +13,6 @@ import EditFoldersList from "./EditFoldersList";
 import { parseItemRef, serializeItemRef } from "../data/Data";
 import { addToMultipleFolders } from "../util/folder";
 import { AuthContext } from "./auth/use-auth-client";
-import { BusyContext } from "./App";
 import { Actor } from "@dfinity/agent";
 
 export default function EditItem(props: {itemId?: string, comment?: boolean}) {
@@ -45,8 +44,6 @@ export default function EditItem(props: {itemId?: string, comment?: boolean}) {
             }
     }
     return (
-            <BusyContext.Consumer>
-                {({setBusy}) =>
                 <AuthContext.Consumer>
                     {({agent, defaultAgent, isAuthenticated}) => {
                     async function submit() {
@@ -105,9 +102,9 @@ export default function EditItem(props: {itemId?: string, comment?: boolean}) {
                             await addToMultipleFolders(agent!, antiCommentsList, {canister: part, id: Number(n)}, true);
                             navigate("/item/"+ref);
                         }
-                        setBusy(true);
+                        // setBusy(true);
                         await submitItem(itemData());
-                        setBusy(false);
+                        // setBusy(false);
                     }
                     async function remove() {
                         if (!window.confirm("Really delete?")) {
@@ -158,7 +155,5 @@ export default function EditItem(props: {itemId?: string, comment?: boolean}) {
                     </>;
                 }}
             </AuthContext.Consumer>
-            }
-        </BusyContext.Consumer>
     );
 }

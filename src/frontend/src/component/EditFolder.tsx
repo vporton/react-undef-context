@@ -12,7 +12,6 @@ import EditFoldersList from "./EditFoldersList";
 import { addToFolder, addToMultipleFolders } from "../util/folder";
 import { parseItemRef, serializeItemRef } from "../data/Data";
 import { AuthContext } from "./auth/use-auth-client";
-import { BusyContext } from "./App";
 import { Actor, Agent } from "@dfinity/agent";
 import { ErrorContext, ErrorContextType } from "./ErrorBoundary";
 
