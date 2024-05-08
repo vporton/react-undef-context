@@ -128,7 +128,7 @@ function MyRouted(props: {defaultAgent: Agent | undefined}) {
                     <ErrorBoundary>
                         <Routes>
                             <Route
-                                path="/create-subfolder/for-folder/:folder"
+                                path="/"
                                 element={
                                     (() => {
                                         function Edit(props) {
