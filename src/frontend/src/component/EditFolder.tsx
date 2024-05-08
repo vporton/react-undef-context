@@ -17,28 +17,15 @@ import { Actor, Agent } from "@dfinity/agent";
 import { ErrorContext, ErrorContextType } from "./ErrorBoundary";
 
 export default function EditFolder(props: {super?: boolean, folderId?: string, superFolderId?: string, defaultAgent: Agent | undefined}) {
-    console.log("RRR", useContext(ErrorContext)); // FIXME: Remove.
-    const errorContext = useContext(ErrorContext); // FIXME: Remove.
+    const errorContext = useContext(ErrorContext);
     const setError = errorContext.setError;
-    return (
-        <BusyContext.Consumer>
-        {({setBusy}) =>
-            <AuthContext.Consumer>
-            {({agent, isAuthenticated}) => {
-                async function submit() {
-                    async function submitItem() {
-                        setError("TEST EXCEPTION");
-                    }
-                    setBusy(true);
-                    await submitItem();
-                    setBusy(false);
-                }
-                return (
-                    <p><Button onClick={submit}>Save</Button></p>
-                );
-            }}
-            </AuthContext.Consumer>
+    async function submit() {
+        async function submitItem() {
+            setError("TEST EXCEPTION");
         }
-        </BusyContext.Consumer>
+        await submitItem();
+    }
+    return (
+        <p><Button onClick={submit}>Save</Button></p>
     );
 }
