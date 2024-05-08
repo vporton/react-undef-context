@@ -1,5 +1,4 @@
 import React, { Component, ErrorInfo, ReactNode, useContext } from "react";
-import { Link } from "react-router-dom";
 
 export class ErrorContextType {
     hasError: boolean;
@@ -36,7 +35,6 @@ export function ErrorHandler({ error }) {
     return (
       <div role="alert">
         <h2>Error</h2>
-        <p><Link to="/" onClick={() => error.hasError = false}>Reset error and go to homepage</Link></p>
         <p style={{color: 'red'}}>{error.message}</p>
       </div>
     );
