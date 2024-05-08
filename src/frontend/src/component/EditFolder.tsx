@@ -16,7 +16,7 @@ import { BusyContext } from "./App";
 import { Actor, Agent } from "@dfinity/agent";
 import { ErrorContext, ErrorContextType } from "./ErrorBoundary";
 
-export default function EditFolder(props: {super?: boolean, folderId?: string, superFolderId?: string, defaultAgent: Agent | undefined}) {
+export default function EditFolder(props: {}) {
     const errorContext = useContext(ErrorContext);
     const setError = errorContext.setError;
     async function submit() {
