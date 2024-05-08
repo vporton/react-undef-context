@@ -6,7 +6,7 @@ export default function App() {
     return (
         <>
             <ErrorBoundary>
-                <p><EditFolder/></p>
+                <EditFolder/>
             </ErrorBoundary>
         </>
     );
