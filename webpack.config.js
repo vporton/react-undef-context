@@ -9,7 +9,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 const frontendDirectory = "frontend";
 
-const frontend_entry = path.join("src", frontendDirectory, "src", "index.html");
+const frontend_entry = path.join(frontendDirectory, "src", "index.html");
 
 module.exports = {
   target: "web",
@@ -62,9 +62,6 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin([
       ...Object.keys(process.env).filter((key) => {
-        if (key.includes("CANISTER")) return true;
-        if (key.includes("DFX")) return true;
-        if (key.includes("REACT_APP")) return true;
         return false;
       }),
     ]),
@@ -75,7 +72,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: `src/${frontendDirectory}/src/.ic-assets.json*`,
+          from: `${frontendDirectory}/src/.ic-assets.json*`,
           to: ".ic-assets.json5",
           noErrorOnMissing: true,
         },
@@ -95,9 +92,9 @@ module.exports = {
         },
       },
     },
-    static: path.resolve(__dirname, "src", frontendDirectory, "assets"),
+    // static: path.resolve(__dirname, frontendDirectory, "assets"),
     hot: true,
-    watchFiles: [path.resolve(__dirname, "src", frontendDirectory)],
+    watchFiles: [path.resolve(__dirname, frontendDirectory)],
     liveReload: true,
   },
 };
