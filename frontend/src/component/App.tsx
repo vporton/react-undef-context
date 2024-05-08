@@ -13,9 +13,7 @@ export default function App() {
     return (
         <>
             <Container>
-                <BrowserRouter>
-                    <MyRouted/>
-                </BrowserRouter>
+                <MyRouted/>
             </Container>
         </>
     );
@@ -24,11 +22,7 @@ export default function App() {
 function MyRouted(props: {}) {
     return <>
         <ErrorBoundary>
-            <Routes>
-                <Route
-                    path="/"
-                    element={<EditFolder/>}/>
-            </Routes>
+            <EditFolder/>
         </ErrorBoundary>
     </>;
 }
